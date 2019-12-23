@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="110e411f98e2401681617f5234263be2" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.Admin" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Competition" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Contact" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Event" Width="1.5" PointX="5.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Manager" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Role" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Student" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Teacher" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Award" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Exhibition" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.LogIn" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Student_Academic_Record" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.FK_Admin_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Competition_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Award_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Student_Academic_Record_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Manager_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_LogIn_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Student_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Teacher_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Award_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Exhibition_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK_Student_Academic_Record_ToTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

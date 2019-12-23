@@ -1,0 +1,67 @@
+﻿@model Fine_Art.Models.Competition
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Competition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.C_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.C_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.S_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.S_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Competition_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Competition_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.C_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

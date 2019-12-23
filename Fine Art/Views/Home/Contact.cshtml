@@ -1,0 +1,143 @@
+﻿@model Fine_Art.Models.Contact
+
+@{
+    ViewBag.Title = "Contact";
+}
+<title>Course - Contact</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Course Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="~/styles/bootstrap4/bootstrap.min.css">
+<link href="~/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="~/styles/contact_styles.css">
+<link rel="stylesheet" type="text/css" href="~/styles/contact_responsive.css">
+
+<!-- Home -->
+
+<div class="home">
+    <div class="home_background_container prlx_parent">
+        <div class="home_background prlx" style="background-image:url(~/images/slider_background.jpg)"></div>
+    </div>
+    <div class="home_content">
+        <h1>Contact</h1>
+    </div>
+</div>
+
+<!-- Contact -->
+
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+
+                <!-- Contact Form -->
+                <div class="contact_form">
+                    <div class="contact_title">Get in touch</div>
+
+                    <div class="contact_form_container">
+
+@using (Html.BeginForm("create" ,"Contacts",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "input_field contact_form_name" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input_field contact_form_email" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text_field contact_form_message" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="contact_send_btn trans_200">
+                                    <input type="submit" value="Submit" class="contact_send_btn trans_200"/>
+                                </div>
+                            </div>
+                        </div>
+}
+
+        @*<form action="post">
+                <input id="contact_form_name" class="input_field contact_form_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
+                <input id="contact_form_email" class="input_field contact_form_email" type="email" placeholder="E-mail" required="required" data-error="Valid email is required.">
+                <textarea id="contact_form_message" class="text_field contact_form_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+                <button id="contact_send_btn" type="button" class="contact_send_btn trans_200" value="Submit">send message</button>
+            </form>*@
+    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="about">
+                    <div class="about_title">Join Courses</div>
+                    <p class="about_text">Drawing. One of the core components of the Fine Art Programme, the Drawing course aims not only towards skill building and technical application, but also serves as a means towards imaginative expression. ...
+Painting. ...
+Sculpture. ...
+Ceramics. ...
+Printmaking. ...
+Miniature Painting. ...
+Film and Video: New Media Art. ...
+Computer Skills.</p>
+
+                    <div class="contact_info">
+                        <ul>
+                            <li class="contact_info_item">
+                                <div class="contact_info_icon">
+                                    <img src="~/images/placeholder.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                                </div>
+                                Karachi,Pakistan
+                            </li>
+                            <li class="contact_info_item">
+                                <div class="contact_info_icon">
+                                    <img src="~/images/smartphone.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                                </div>
+                            03072388689
+                            </li>
+                            <li class="contact_info_item">
+                                <div class="contact_info_icon">
+                                    <img src="~/images/envelope.svg" alt="https://www.flaticon.com/authors/lucy-g">
+                                </div>hello@company.com
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+         Google Map 
+
+        <div class="row">
+            <div class="col">
+                <div id="google_map">
+                    <div class="map_container">
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

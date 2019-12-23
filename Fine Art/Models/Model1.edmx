@@ -1,0 +1,872 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="RId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ASP\DESKTOP\FINE ART\FINE ART\APP_DATA\DATABASE.MDF.dbo.Award' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Award">
+          <Key>
+            <PropertyRef Name="S-Id" />
+          </Key>
+          <Property Name="S-Id" Type="int" Nullable="false" />
+          <Property Name="C-Id" Type="int" />
+          <Property Name="Award_Title" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Competition_Name" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="C-Id" />
+          </Key>
+          <Property Name="C-Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="C-description" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="bigint" />
+          <Property Name="S_Id" Type="varchar" MaxLength="50" />
+          <Property Name="Competition_Name" Type="int" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="E-Id" />
+          </Key>
+          <Property Name="E-Id" Type="int" Nullable="false" />
+          <Property Name="Event_Detail" Type="nchar" MaxLength="50" />
+          <Property Name="DateTime" Type="nchar" MaxLength="30" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ASP\DESKTOP\FINE ART\FINE ART\APP_DATA\DATABASE.MDF.dbo.Exhibition' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Exhibition">
+          <Key>
+            <PropertyRef Name="Painting_Pic" />
+          </Key>
+          <Property Name="Painting_Pic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Painting_Detail" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="E-Id" Type="int" />
+          <Property Name="S-Id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ASP\DESKTOP\FINE ART\FINE ART\APP_DATA\DATABASE.MDF.dbo.LogIn' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LogIn">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="50" />
+          <Property Name="Re-Type Passowrd" Type="nchar" MaxLength="50" />
+          <Property Name="RId" Type="int" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="RId" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RId" />
+          </Key>
+          <Property Name="RId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="S-Id" />
+          </Key>
+          <Property Name="S-Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Phone_Number" Type="nchar" MaxLength="50" />
+          <Property Name="Address" Type="nchar" MaxLength="50" />
+          <Property Name="RId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\ASP\DESKTOP\FINE ART\FINE ART\APP_DATA\DATABASE.MDF.dbo.Student Academic Record' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Student Academic Record">
+          <Key>
+            <PropertyRef Name="S-Id" />
+          </Key>
+          <Property Name="S-Id" Type="int" Nullable="false" />
+          <Property Name="C-Id" Type="int" />
+          <Property Name="remarks" Type="varchar" MaxLength="50" />
+          <Property Name="createddate" Type="nchar" MaxLength="50" />
+          <Property Name="Marks" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Phone_Num" Type="nchar" MaxLength="50" />
+          <Property Name="Address" Type="nchar" MaxLength="50" />
+          <Property Name="RId" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Admin_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Award_ToTable">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Award" Type="Self.Award" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="S-Id" />
+            </Principal>
+            <Dependent Role="Award">
+              <PropertyRef Name="S-Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Award_ToTable_1">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
+          <End Role="Award" Type="Self.Award" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="C-Id" />
+            </Principal>
+            <Dependent Role="Award">
+              <PropertyRef Name="C-Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competition_ToTable">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Competition">
+              <PropertyRef Name="Competition_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exhibition_ToTable_1">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Exhibition" Type="Self.Exhibition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="S-Id" />
+            </Principal>
+            <Dependent Role="Exhibition">
+              <PropertyRef Name="S-Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogIn_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="LogIn" Type="Self.LogIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="LogIn">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student Academic Record_ToTable">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student Academic Record" Type="Self.Student Academic Record" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="S-Id" />
+            </Principal>
+            <Dependent Role="Student Academic Record">
+              <PropertyRef Name="S-Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student Academic Record_ToTable_1">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
+          <End Role="Student Academic Record" Type="Self.Student Academic Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="C-Id" />
+            </Principal>
+            <Dependent Role="Student Academic Record">
+              <PropertyRef Name="C-Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Competition" EntityType="Self.Competition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Award" EntityType="Self.Award" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Award].[S-Id] AS [S-Id], 
+    [Award].[C-Id] AS [C-Id], 
+    [Award].[Award_Title] AS [Award_Title]
+    FROM [dbo].[Award] AS [Award]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Exhibition" EntityType="Self.Exhibition" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Exhibition].[Painting_Pic] AS [Painting_Pic], 
+    [Exhibition].[Painting_Detail] AS [Painting_Detail], 
+    [Exhibition].[Price] AS [Price], 
+    [Exhibition].[Status] AS [Status], 
+    [Exhibition].[E-Id] AS [E-Id], 
+    [Exhibition].[S-Id] AS [S-Id]
+    FROM [dbo].[Exhibition] AS [Exhibition]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LogIn" EntityType="Self.LogIn" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LogIn].[Email] AS [Email], 
+    [LogIn].[Password] AS [Password], 
+    [LogIn].[Re-Type Passowrd] AS [Re-Type Passowrd], 
+    [LogIn].[RId] AS [RId]
+    FROM [dbo].[LogIn] AS [LogIn]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Student Academic Record" EntityType="Self.Student Academic Record" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Student Academic Record].[S-Id] AS [S-Id], 
+    [Student Academic Record].[C-Id] AS [C-Id], 
+    [Student Academic Record].[remarks] AS [remarks], 
+    [Student Academic Record].[createddate] AS [createddate], 
+    [Student Academic Record].[Marks] AS [Marks]
+    FROM [dbo].[Student Academic Record] AS [Student Academic Record]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Admin_ToTable" Association="Self.FK_Admin_ToTable">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Award_ToTable" Association="Self.FK_Award_ToTable">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Award" EntitySet="Award" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Award_ToTable_1" Association="Self.FK_Award_ToTable_1">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Award" EntitySet="Award" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competition_ToTable" Association="Self.FK_Competition_ToTable">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Competition" EntitySet="Competition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exhibition_ToTable_1" Association="Self.FK_Exhibition_ToTable_1">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Exhibition" EntitySet="Exhibition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogIn_ToTable" Association="Self.FK_LogIn_ToTable">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="LogIn" EntitySet="LogIn" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_ToTable" Association="Self.FK_Manager_ToTable">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Manager" EntitySet="Manager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student Academic Record_ToTable" Association="Self.FK_Student Academic Record_ToTable">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Student Academic Record" EntitySet="Student Academic Record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student Academic Record_ToTable_1" Association="Self.FK_Student Academic Record_ToTable_1">
+            <End Role="Competition" EntitySet="Competition" />
+            <End Role="Student Academic Record" EntitySet="Student Academic Record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_ToTable" Association="Self.FK_Student_ToTable">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_ToTable" Association="Self.FK_Teacher_ToTable">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RId" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Admin_ToTable" FromRole="Admin" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Competition_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Competitions" Relationship="Self.FK_Competition_ToTable" FromRole="Category" ToRole="Competition" />
+        </EntityType>
+        <EntityType Name="Competition">
+          <Key>
+            <PropertyRef Name="C_Id" />
+          </Key>
+          <Property Name="C_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="C_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int64" />
+          <Property Name="S_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Competition_Name" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Competition_ToTable" FromRole="Competition" ToRole="Category" />
+          <NavigationProperty Name="Awards" Relationship="Self.FK_Award_ToTable_1" FromRole="Competition" ToRole="Award" />
+          <NavigationProperty Name="Student_Academic_Record" Relationship="Self.FK_Student_Academic_Record_ToTable_1" FromRole="Competition" ToRole="Student_Academic_Record" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="E_Id" />
+          </Key>
+          <Property Name="E_Id" Type="Int32" Nullable="false" />
+          <Property Name="Event_Detail" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DateTime" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RId" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Manager_ToTable" FromRole="Manager" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RId" />
+          </Key>
+          <Property Name="RId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Admins" Relationship="Self.FK_Admin_ToTable" FromRole="Role" ToRole="Admin" />
+          <NavigationProperty Name="Managers" Relationship="Self.FK_Manager_ToTable" FromRole="Role" ToRole="Manager" />
+          <NavigationProperty Name="LogIns" Relationship="Self.FK_LogIn_ToTable" FromRole="Role" ToRole="LogIn" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Student_ToTable" FromRole="Role" ToRole="Student" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teacher_ToTable" FromRole="Role" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="S_Id" />
+          </Key>
+          <Property Name="S_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Phone_Number" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="RId" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Student_ToTable" FromRole="Student" ToRole="Role" />
+          <NavigationProperty Name="Award" Relationship="Self.FK_Award_ToTable" FromRole="Student" ToRole="Award" />
+          <NavigationProperty Name="Exhibitions" Relationship="Self.FK_Exhibition_ToTable_1" FromRole="Student" ToRole="Exhibition" />
+          <NavigationProperty Name="Student_Academic_Record" Relationship="Self.FK_Student_Academic_Record_ToTable" FromRole="Student" ToRole="Student_Academic_Record" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Num" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="RId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Teacher_ToTable" FromRole="Teacher" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Award">
+          <Key>
+            <PropertyRef Name="S_Id" />
+          </Key>
+          <Property Name="S_Id" Type="Int32" Nullable="false" />
+          <Property Name="C_Id" Type="Int32" />
+          <Property Name="Award_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Competition" Relationship="Self.FK_Award_ToTable_1" FromRole="Award" ToRole="Competition" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Award_ToTable" FromRole="Award" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Exhibition">
+          <Key>
+            <PropertyRef Name="Painting_Pic" />
+          </Key>
+          <Property Name="Painting_Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Painting_Detail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="E_Id" Type="Int32" />
+          <Property Name="S_Id" Type="Int32" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Exhibition_ToTable_1" FromRole="Exhibition" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="LogIn">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Re_Type_Passowrd" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="RId" Type="Int32" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_LogIn_ToTable" FromRole="LogIn" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Student_Academic_Record">
+          <Key>
+            <PropertyRef Name="S_Id" />
+          </Key>
+          <Property Name="S_Id" Type="Int32" Nullable="false" />
+          <Property Name="C_Id" Type="Int32" />
+          <Property Name="remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createddate" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Marks" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Competition" Relationship="Self.FK_Student_Academic_Record_ToTable_1" FromRole="Student_Academic_Record" ToRole="Competition" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Academic_Record_ToTable" FromRole="Student_Academic_Record" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_Admin_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Admin">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competition_ToTable">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Competition" Type="Self.Competition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Competition">
+              <PropertyRef Name="Competition_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Award_ToTable_1">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
+          <End Role="Award" Type="Self.Award" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="C_Id" />
+            </Principal>
+            <Dependent Role="Award">
+              <PropertyRef Name="C_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Academic_Record_ToTable_1">
+          <End Role="Competition" Type="Self.Competition" Multiplicity="0..1" />
+          <End Role="Student_Academic_Record" Type="Self.Student_Academic_Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competition">
+              <PropertyRef Name="C_Id" />
+            </Principal>
+            <Dependent Role="Student_Academic_Record">
+              <PropertyRef Name="C_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Manager_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Manager" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Manager">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LogIn_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="LogIn" Type="Self.LogIn" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="LogIn">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_ToTable">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Award_ToTable">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Award" Type="Self.Award" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="S_Id" />
+            </Principal>
+            <Dependent Role="Award">
+              <PropertyRef Name="S_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exhibition_ToTable_1">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Exhibition" Type="Self.Exhibition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="S_Id" />
+            </Principal>
+            <Dependent Role="Exhibition">
+              <PropertyRef Name="S_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Academic_Record_ToTable">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student_Academic_Record" Type="Self.Student_Academic_Record" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="S_Id" />
+            </Principal>
+            <Dependent Role="Student_Academic_Record">
+              <PropertyRef Name="S_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Competitions" EntityType="Self.Competition" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Managers" EntityType="Self.Manager" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+          <EntitySet Name="Awards" EntityType="Self.Award" />
+          <EntitySet Name="Exhibitions" EntityType="Self.Exhibition" />
+          <EntitySet Name="LogIns" EntityType="Self.LogIn" />
+          <EntitySet Name="Student_Academic_Records" EntityType="Self.Student_Academic_Record" />
+          <AssociationSet Name="FK_Admin_ToTable" Association="Self.FK_Admin_ToTable">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Admin" EntitySet="Admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competition_ToTable" Association="Self.FK_Competition_ToTable">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Competition" EntitySet="Competitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Award_ToTable_1" Association="Self.FK_Award_ToTable_1">
+            <End Role="Competition" EntitySet="Competitions" />
+            <End Role="Award" EntitySet="Awards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Academic_Record_ToTable_1" Association="Self.FK_Student_Academic_Record_ToTable_1">
+            <End Role="Competition" EntitySet="Competitions" />
+            <End Role="Student_Academic_Record" EntitySet="Student_Academic_Records" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Manager_ToTable" Association="Self.FK_Manager_ToTable">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Manager" EntitySet="Managers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LogIn_ToTable" Association="Self.FK_LogIn_ToTable">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="LogIn" EntitySet="LogIns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_ToTable" Association="Self.FK_Student_ToTable">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_ToTable" Association="Self.FK_Teacher_ToTable">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Award_ToTable" Association="Self.FK_Award_ToTable">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Award" EntitySet="Awards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exhibition_ToTable_1" Association="Self.FK_Exhibition_ToTable_1">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Academic_Record_ToTable" Association="Self.FK_Student_Academic_Record_ToTable">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Student_Academic_Record" EntitySet="Student_Academic_Records" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="DatabaseModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RId" ColumnName="RId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DatabaseModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Competition_Name" ColumnName="Competition_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competitions">
+            <EntityTypeMapping TypeName="DatabaseModel.Competition">
+              <MappingFragment StoreEntitySet="Competition">
+                <ScalarProperty Name="C_Id" ColumnName="C-Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="C_description" ColumnName="C-description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="S_Id" ColumnName="S_Id" />
+                <ScalarProperty Name="Competition_Name" ColumnName="Competition_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="DatabaseModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="DatabaseModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="E_Id" ColumnName="E-Id" />
+                <ScalarProperty Name="Event_Detail" ColumnName="Event_Detail" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="DatabaseModel.Manager">
+              <MappingFragment StoreEntitySet="Manager">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RId" ColumnName="RId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DatabaseModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RId" ColumnName="RId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="DatabaseModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="S_Id" ColumnName="S-Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RId" ColumnName="RId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="DatabaseModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone_Num" ColumnName="Phone_Num" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="RId" ColumnName="RId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Awards">
+            <EntityTypeMapping TypeName="DatabaseModel.Award">
+              <MappingFragment StoreEntitySet="Award">
+                <ScalarProperty Name="S_Id" ColumnName="S-Id" />
+                <ScalarProperty Name="C_Id" ColumnName="C-Id" />
+                <ScalarProperty Name="Award_Title" ColumnName="Award_Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exhibitions">
+            <EntityTypeMapping TypeName="DatabaseModel.Exhibition">
+              <MappingFragment StoreEntitySet="Exhibition">
+                <ScalarProperty Name="Painting_Pic" ColumnName="Painting_Pic" />
+                <ScalarProperty Name="Painting_Detail" ColumnName="Painting_Detail" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="E_Id" ColumnName="E-Id" />
+                <ScalarProperty Name="S_Id" ColumnName="S-Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogIns">
+            <EntityTypeMapping TypeName="DatabaseModel.LogIn">
+              <MappingFragment StoreEntitySet="LogIn">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Re_Type_Passowrd" ColumnName="Re-Type Passowrd" />
+                <ScalarProperty Name="RId" ColumnName="RId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Academic_Records">
+            <EntityTypeMapping TypeName="DatabaseModel.Student_Academic_Record">
+              <MappingFragment StoreEntitySet="Student Academic Record">
+                <ScalarProperty Name="S_Id" ColumnName="S-Id" />
+                <ScalarProperty Name="C_Id" ColumnName="C-Id" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

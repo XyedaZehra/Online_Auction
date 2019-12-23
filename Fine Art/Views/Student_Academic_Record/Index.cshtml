@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Fine_Art.Models.Student_Academic_Record>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createddate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Competition.C_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createddate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Competition.C_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.S_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.S_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.S_Id })
+        </td>
+    </tr>
+}
+
+</table>

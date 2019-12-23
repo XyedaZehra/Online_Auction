@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Fine_Art.Models.Exhibition>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Painting_Detail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.E_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Painting_Detail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Painting_Pic }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Painting_Pic }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Painting_Pic })
+        </td>
+    </tr>
+}
+
+</table>
