@@ -53,6 +53,7 @@ namespace Fine_Art.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string txtName,string txtPassword)
         {
+            ViewBag.data = "lst";
             if (ModelState.IsValid)
             {
 
